@@ -1,0 +1,51 @@
+{
+    "name": "esp-homekit",
+    "frameworks": "espidf",
+    "platforms": "espressif32",
+    "build": {
+        "flags": [
+            "-DWOLFCRYPT_HAVE_SRP",
+            "-DWOLFSSL_SHA512",
+            "-DWOLFSSL_BASE64_ENCODE",
+            "-DNO_MD5",
+            "-DNO_SHA",
+            "-DHAVE_HKDF",
+            "-DHAVE_CHACHA",
+            "-DHAVE_POLY1305",
+            "-DHAVE_ED25519",
+            "-DHAVE_CURVE25519",
+            "-DNO_SESSION_CACHE",
+            "-DRSA_LOW_MEM",
+            "-DGCM_SMALL",
+            "-DUSE_SLOW_SHA512",
+            "-DWC_NO_HARDEN",
+            "-DWOLFCRYPT_ONLY",
+            "-DESP_IDF"
+        ],
+        "includeDir": "include",
+        "srcDir": "src",
+        "srcFilter": [
+            "+<json.c>",
+            "+<storage.c>",
+            "+<tlv.c>",
+            "+<server.c>",
+            "+<debug.c>",
+            "+<accessories.c>",
+            "+<base64.c>",
+            "+<port.c>",
+            "+<query_params.c>",
+            "+<crypto.c>"
+        ]
+    },
+    "dependencies": [
+        {
+            "name": "cJSON"
+        },
+        {
+            "name": "wolfSSL"
+        },
+        {
+            "name": "http-parser"
+        }
+    ]
+}
